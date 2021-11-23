@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  -moz-appearance: none !important;
+  scrollbar-width: thin; /* 设置firfox下scrollbar的宽度样式：auto/thin/none */
+  scrollbar-color: #d4d4d4 transparent; /* 设置firfox下scrollbar的滚动指示器颜色和背景色：auto/rgbcolor/hexcolor */
+}
+html, body {
+  height: 100%;
+}
+ul, li {
+  list-style: none;
+}
+input:focus {
+  outline: none;
+}
+a {
+  text-decoration: none;
+}
+.clear {
+  clear: both;
+  &::after {
+    visibility: hidden;
+    height: 0;
+    display: block;
+    content: '';
+    clear: both;
+  }
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+s, i, em {
+  font-style: normal;
+  text-decoration: none;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.page_top {
+  border-bottom: 1px solid #409EFF;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  .fr {
+    .btn {
+      cursor: pointer;
+    }
+  }
+}
+
+$--color-primary: #409EFF !default;
+$--color-white: #fff !default;
+$--color-primary-light-1: mix($--color-white, $--color-primary, 10%) !default; /* 53a8ff */
+$--color-primary-light-2: mix($--color-white, $--color-primary, 20%) !default; /* 66b1ff */
+$--color-primary-light-3: mix($--color-white, $--color-primary, 30%) !default; /* 79bbff */
+$--color-primary-light-4: mix($--color-white, $--color-primary, 40%) !default; /* 8cc5ff */
+$--color-primary-light-5: mix($--color-white, $--color-primary, 50%) !default; /* a0cfff */
+$--color-primary-light-6: mix($--color-white, $--color-primary, 60%) !default; /* b3d8ff */
+$--color-primary-light-7: mix($--color-white, $--color-primary, 70%) !default; /* c6e2ff */
+$--color-primary-light-8: mix($--color-white, $--color-primary, 80%) !default; /* d9ecff */
+$--color-primary-light-9: mix($--color-white, $--color-primary, 90%) !default; /* ecf5ff */
+
+$--color-success: #67c23a !default;
+$--color-warning: #e6a23c !default;
+$--color-danger: #f56c6c !default;
+$--color-info: #909399 !default;
