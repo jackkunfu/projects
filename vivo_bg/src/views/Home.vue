@@ -51,6 +51,7 @@ export default {
     // console.log(localStorage.EVENGFRONTUSER)
     let user = JSON.parse(localStorage.EVENGFRONTUSER).user
     if (user && user.auth == 'admin') {
+      this.menus.push({ name: 'News', path: '/news' })
       this.menus.push({ name: 'Administrator', path: '/adminManage' })
     }
   }

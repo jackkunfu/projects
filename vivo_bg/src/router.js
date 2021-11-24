@@ -18,7 +18,8 @@ export default new Router({
       },
       children: [
         { path: '/stu', name: 'stu', component: () => import('./views/Student.vue') },
-        { path: '/adminManage', name: 'adminManage', component: () => import('./views/AdminManage.vue') }
+        { path: '/adminManage', name: 'adminManage', component: () => import('./views/AdminManage.vue') },
+        { path: '/news', name: 'news', component: () => import('./views/news.vue') }
       ]
     }
   ]
