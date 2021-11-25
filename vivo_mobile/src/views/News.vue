@@ -1,9 +1,15 @@
 <template>
   <div>
-    <div class="item" v-for="item in list" :key="item.id" @click="goDtl(item.id)">
-      <div class="l">{{ item.name }}</div>
-      <div class="r">{{ item.createTime }}</div>
+    <div class="list">
+      <div class="item" v-for="item in list" :key="item.id" @click="goDtl(item.id)">
+        <div class="l">{{ item.name }}</div>
+        <div class="r">{{ item.createTime }}</div>
+      </div>
     </div>
+    <el-pagination
+      layout="prev, pager, next" :total="1000"
+      @current-change="pageChange">
+    </el-pagination>
   </div>
 </template>
 
@@ -18,17 +24,28 @@
           { name: 50, createTime: 'xxxx-xx-xx' },
           { name: 50, createTime: 'xxxx-xx-xx' }
         ],
+        pData: { cur: 1, total: 0 },
         shop: {}
       }
     },
     created () {
-      this.getList()
+      this.getList(1)
     },
     methods: {
-      async getList () {
-        let res = await this._fetch('/api/news/list', {}, 'get')
+      pageChange (v) {
+        this.getList(v)
+      },
+      async getList (p) {
+        this.pData.cur = p
+        let res = await this._fetch('/api/article/list', {
+          pageSize: 20, pageNum: p
+        }, 'get')
         if (res && res.code === 1) {
-          this.list = res.data || []
+          let data = res.data || {}
+
+          this.list = data.list || []
+
+          this.pData.total = data.total || 0
         }
       },
       goDtl (id) {
