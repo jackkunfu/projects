@@ -22,10 +22,14 @@ module.exports = {
     https: false, // https:{type:Boolean}
     open: false, // 配置自动启动浏览器
     proxy: {
+      '/admin': {
+        target: 'http://47.99.201.236:9000',
+        // pathRewrite: { '^/api': '' },
+        changeOrigin: true
+      },
       '/api': {
-        // target: 'http://47.99.201.236:9000',
-        target: 'http://vid6av.natappfree.cc',
-        pathRewrite: { '^/api': '' },
+        target: 'http://47.99.201.236:9000',
+        // pathRewrite: { '^/api': '' },
         changeOrigin: true
       }
     }

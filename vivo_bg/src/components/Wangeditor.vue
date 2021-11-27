@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(ref="editor" style="text-align:left")
+  div(ref="editor" style="text-align: left;")
 </template>
 
 <script>
@@ -22,12 +22,10 @@
         editorContent: ''
       }
     },
-    methods: {
-      
-    },
+    methods: {},
     mounted() {
       this.editor = new E(this.$refs.editor)
-      this.editor.customConfig.uploadImgServer = this.reqBasic + '/admin/file/upload'  // 上传图片到服务器
+      this.editor.customConfig.uploadImgServer = this.reqBasic + '/api/upload'  // 上传图片到服务器
       this.editor.customConfig.uploadFileName = 'file'
       this.editor.customConfig.uploadImgHooks = {
         before: function (xhr, editor, files) {
