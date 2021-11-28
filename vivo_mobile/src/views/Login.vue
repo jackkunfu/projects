@@ -2,15 +2,15 @@
   .login
     //- video(src="../assets/login_bg.mp4" muted autoplay loop)
     div
-      h2.top Bihar Royal Ranking 
+      h2.top vivo KL Retailer system
       .form
         el-form(:model="formData")
-          el-form-item(label="Account")
-            el-input(placeholder="Enter retailer code" v-model="formData.dmsCode")
+          el-form-item(label="Retailer Name")
+            el-input(placeholder="Enter retailer name" v-model="formData.dmsCode")
           el-form-item(label="Password")
             el-input(placeholder="Enter your password" v-model="formData.password" type="password")
 
-        el-button(@click="fn" style="width: 300px;margin-top: 15px;border:none;font-size:1em;font-weight:bold;color:#fff;background-color:#5b8dff;") Login
+        el-button.btn(@click="fn") LOG IN
 
 </template>
 
@@ -46,6 +46,7 @@ export default {
   width: 100%;
   height: 100%;
   color: #fff;
+  background-color: #5b8dff;
   video {
     position: absolute;
     width: 100%;
@@ -63,18 +64,30 @@ export default {
   .top {
     margin-bottom: 10px;
     z-index: 1;
-    color: #5b8dff;
+    // color: #5b8dff;
   }
   .form {
     width: 300px;
     margin: 0 auto;
     z-index: 1;
     ::v-deep .el-form-item__label {
-      color: #5b8dff;
+      color: #fff;
       font-size:1em;
       font-weight:bold;
       // padding:0;
       margin: 0;
+    }
+    .btn {
+      width: 300px;
+      margin-top: 15px;
+      border: #fff;
+      font-size: 1em;
+      line-height: 2;
+      font-weight: bold;
+      color: #5b8dff;
+      background-color:#fff;
+      text-align: center;
+      border-radius: 2em;
     }
   }
 }

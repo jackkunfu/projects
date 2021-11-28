@@ -38,10 +38,10 @@ function timeStr(v) {
 
 <style scoped>
 .top {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #eee;
   text-align: center;
   margin-bottom: 1em;
-  padding: 1em;
+  padding: 0.5em;
 }
 .title {
   height: 2em;

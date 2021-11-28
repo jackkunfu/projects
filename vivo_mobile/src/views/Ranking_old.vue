@@ -2,117 +2,52 @@
   <div class="rank">
     <div class="top">
       <p class="name">{{ shop.retailerName }}</p>
-      <p class="sub">{{ shop.clubClass || '--' }}</p>
+      <p class="sub">{{ shop.clubClass || 'afdas HSF SREHsfdjsnj' }}</p>
+    </div>
+    <div>
+      <ul class="list0">
+        <li><span>Catagory:</span><lable> {{ shop.evCatgry }}</lable></li>
+        <li><span>Current Rank:</span><lable> {{ shop.currentlyRank }}</lable></li>
+      </ul>
+    </div>
+    <div>
+      <ul class="list1">
+        <li><p style="font-weight:bold;font-size:1.1em;">{{ shop.currentlyMonthTarget }}</p><p> Current Month Target</p></li>
+        <li><p style="font-weight:bold;font-size:1.1em;">{{ shop.currentlyMonthAchievement }}</p><p> Current Month Achievement</p></li>
+        <li><p style="font-weight:bold;font-size:1.1em;">{{ shop.lastMonthSales }}</p><p> Last Month Sales</p></li>
+        <li style="border-right:none;"><p style="font-weight:bold;font-size:1.1em;">{{ shop.lastMonthSchemePayout }}</p><p> Last Month Scheme Payout</p></li>
+      </ul>
     </div>
 
-    <div class="blue" style="height: 3em;padding-top: 0.75em;">
-      <div class="half">Client Level：
-        <span class="white">{{ shop.clientLevel || '' }}</span>
-      </div>
-      <div class="half">Current Rank：
-        <span class="white">{{ shop.currentRank || '' }}</span>
-      </div>
-    </div>
-
-    <div class="f_b" style="height: 2em;padding-top: 0.5em;">{{ shop.lastMonthSchemePayout || 0 }}</div>
-    <div class="f_s blue">Last Month Scheme Payout</div>
-
-    <div class="f_b" style="height: 2em;padding-top: 0.5em;">{{ shop.currentlyMonthTarget || 0 }}</div>
-    <div class="f_s blue">Current Month Target</div>
-
-    <div style="border-bottom: 1px solid #eee;padding-top: 0.8em;">
-      <div class="half line">
-        <div class="f_b">{{ shop.currentMonthAchievement || 0 }}</div>
-        <div class="f_s">Current Month Achievement</div>
-      </div>
-      <div class="half">
-        <div class="f_b">{{ shop.currentMonthAchievementPercent || '0%' }}</div>
-        <div class="f_s">Current Month Achievement %</div>
-      </div>
-    </div>
-
-    <div style="padding-bottom: 0.8em;">
-      <div class="half line">
-        <div class="f_b">{{ shop.lastMonthSales || 0 }}</div>
-        <div class="f_s">Last Month Sales</div>
-      </div>
-      <div class="half">
-        <div class="f_b">{{ shop.mtdGrowthPercent || '0%' }}</div>
-        <div class="f_s">MTD Growth %</div>
-      </div>
-    </div>
-
-    <div class="blue ul">
-      <div>
-        <div class="half">
-          <div class="f_s bold">Sales Score</div>
-          <div class="white">{{ shop.salesScore || 0 }}</div>
-        </div>
-        <div class="half">
-          <div class="f_s bold">Exclusive Store Score</div>
-          <div class="white">{{ shop.exclusiveStoreScore || 0 }}</div>
-        </div>
-      </div>
-
-      <div>
-        <div class="half">
-          <div class="f_s bold">Branding Score</div>
-          <div class="white">{{ shop.brandingScore || 0 }}</div>
-        </div>
-        <div class="half">
-          <div class="f_s">vivo Share Score</div>
-          <div class="white">{{ shop.shareScore || 0 }}</div>
-        </div>
-      </div>
-
-      <div>
-        <div class="half">
-          <div class="f_s bold">Repayment Score</div>
-          <div class="white">{{ shop.repaymentScore || 0 }}</div>
-        </div>
-        <div class="half">
-          <div class="f_s">Current Total Score</div>
-          <div class="white">{{ shop.currentlyTotalScore || 0 }}</div>
-        </div>
-      </div>
-
-      <div>
-        <div class="half">
-          <div class="f_s bold">Current Branding Balance</div>
-          <div class="white">{{ shop.currentlyBrandingBalance || 0 }}</div>
-        </div>
-        <div class="half">
-          <div class="f_s">Branding Advance Remainder</div>
-          <div class="white">{{ shop.brandingAdvanceRemainder || 0 }}</div>
-        </div>
-      </div>
-
-      <div>
-        <div class="half">
-          <div class="f_s bold">TL Name</div>
-          <div class="white">{{ shop.tlName || 'ANURAG KUMAR SINGH' }}</div>
-        </div>
-        <div class="half">
-          <div class="f_s">TL Contact Number</div>
-          <div class="white">{{ shop.tlContactNumber || 'EC0002235' }}</div>
-        </div>
-      </div>
+    <div>
+      <ul class="list">
+        <li><lable><span>Sale</span> Score:</lable><p>{{ shop.salesScore || 0 }}</p></li>
+        <li><lable>Exclusive Store Score:</lable><p>{{ shop.exclusiveStoreScore|| 0 }}</p></li>
+        <li><lable>Branding Score:</lable><p>{{ shop.brandingScore || 0 }}</p></li>
+        <li><lable>vivo Share Score</lable><p>{{ shop.vivoShareScore}}</p></li>
+        <li><lable>Repayment Score:</lable><p>{{ shop.repaymentScore}}</p></li>
+        <li><lable>Current Total Score:</lable><p>{{ shop.currentlyTotalScore}}</p></li>
+        <li><lable style="padding-right:1px;">Current Branding Balance:</lable><p>{{ shop.currentlyBrandingBalance}}</p></li>
+        <li><lable>Branding Advance Remainder:</lable><p>{{ shop.brandingAdvanceRemainder}}</p></li>
+        <!-- <li><lable>TL Name:</lable><p>ANURAG KUMAR SINGH</p></li>
+        <li><lable>TL Contact Number:</lable><p>EC0002235</p></li> -->
+      </ul>
     </div>
 
     <div>
       <b-table striped hover :items="items"></b-table>
     </div>
 
-    <!-- <div>
+    <div>
       <ul>
         <li><lable>TL Name:</lable><p>{{ shop.tlName }}</p></li>
         <li><lable>TL Contact Number:</lable><p>{{ shop.tlContactNumber }}</p></li>
         <li><lable>Update time:</lable><p style="color:red;">{{ shop.dateTime }}</p></li>
       </ul>
-    </div> -->
+    </div>
 
-    <div style="text-align: center;padding-bottom: 2em;">
-      <b-col cols="8" style="margin: 1em auto;"><b-button block variant="danger" size="lg" @click="logout">Logout</b-button></b-col>
+    <div>
+      <b-col cols="8"><b-button block variant="danger" size="lg" @click="logout">Logout</b-button></b-col>
     </div>
 
     <!-- <b-row style="margin:50px;" align-h="center"> -->
@@ -134,7 +69,12 @@
         },
         foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
         show: true,
-        items: [],
+        items: [
+          { RankNo: 50, ClubCLass: 'UR', CurrentMonthAchievement: 'Macdonald' ,CurrentTotalScore:'111'},
+          { RankNo: 500, ClubCLass: 'SSR', CurrentMonthAchievement: 'Macdonald' ,CurrentTotalScore:'111'},
+          { RankNo: 600, ClubCLass: 'SSR', CurrentMonthAchievement: 'Macdonald' ,CurrentTotalScore:'111'},
+          { RankNo: 1200, ClubCLass: 'D', CurrentMonthAchievement: 'Macdonald' ,CurrentTotalScore:'111'}
+        ],
         shop: {}
       }
     },
@@ -178,7 +118,23 @@
           })
           console.log(items)
           this.items = items
-          this.shop = data.shop || {}
+          var shop = data.shop || {}
+          this.shop = shop
+          this.shop.currentlyMonthTarget = st(this.shop.currentlyMonthTarget)
+          this.shop.currentlyMonthAchievement = st(this.shop.currentlyMonthAchievement)
+          this.shop.lastMonthSales = st(this.shop.lastMonthSales)
+          this.shop.lastMonthSchemePayout = st(this.shop.lastMonthSchemePayout)
+          this.shop.salesScore = st0(this.shop.salesScore)
+          this.shop.currentlyTotalScore = st0(this.shop.currentlyTotalScore)
+          this.shop.currentlyBrandingBalance = st(this.shop.currentlyBrandingBalance)
+          this.shop.brandingAdvanceRemainder = st(this.shop.brandingAdvanceRemainder)
+          this.shop.currentlyMonthAchievement = st(this.shop.currentlyMonthAchievement)
+          this.shop.exclusiveStoreScore = st0(this.shop.exclusiveStoreScore)
+          this.shop.brandingScore = st0(this.shop.brandingScore)
+          this.shop.vivoShareScore = st0(this.shop.vivoShareScore)
+          this.shop.repaymentScore = st0(this.shop.repaymentScore)
+          
+          
         }
       }
     }
@@ -194,14 +150,12 @@
 
 <style lang="scss" scoped>
 .rank {
-  text-align: center;
   .top {
     background-color: #5b8dff;
     height: 10em;
     color: #fff;
     font-weight: bold;
     padding: 0.5em;
-    text-align: left;
     .name {
       font-size: 2em;
     }
@@ -212,49 +166,13 @@
   .half {
     width: 50%;
     display: inline-block;
-    &.line {
-      border-right: 1px solid #eee;
-    }
+    text-align: center;
   }
   .blue {
     background-color: #dbecf7;
   }
-  .f_b {
+  .f_bg {
     font-size: 1.8em;
-    line-height: 1;
-    font-weight: bold;
-  }
-  .f_s {
-    font-size: 0.8em;
-    line-height: 2;
-    color: #666;
-    &.bold {
-      color: #000;
-    }
-  }
-  .white {
-    background: #fff;
-    text-align: left;
-    display: inline-block;
-    vertical-align: middle;
-    height: 1.5em;
-    line-height: 1.5em;
-    border-radius: 0.2em;
-    font-weight: bold;
-    padding: 0 0.5em;
-    min-width: 5em;
-  }
-  .ul {
-    padding: 0.5em 0 1em;
-    .f_s {
-      margin-bottom: 0.4em;
-      margin-top: 0.5em;
-    }
-    .white {
-      width: 9em;
-      line-height: 2;
-      height: 2em;
-    }
   }
 }
 </style>
