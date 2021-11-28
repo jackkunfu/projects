@@ -57,17 +57,25 @@ export default {
 
           { name: 'Client Level', prop: 'clientLevel' },
           { name: 'Currently Rank', prop: 'currentlyRank' },
-          { name: 'Last Month Scheme Payout', prop: 'lastMonthSchemePayout' },
-
+          { name: 'Last Month Scheme Payout', prop: 'lastMonthSchemePayout', handle: v => {
+            let num = (v.lastMonthSchemePayout || 0) - 0
+            return num.toLocaleString()
+          } },
           { name: 'Current Month Value Target', prop: 'currentMonthValueTarget' },
           { name: 'Current Month Value Achievement', prop: 'currentMonthValueAchievement' },
           { name: 'Current Month Value Achievement%', prop: 'currentMonthValueAchievement%' },
-          { name: 'Last Month Value Sales', prop: 'LastMonthValueSales' },
+          { name: 'Last Month Value Sales', prop: 'lastMonthValueSales', handle: v => {
+            let num = (v.lastMonthValueSales || 0) - 0
+            return num.toLocaleString()
+          } },
           { name: 'MTD Value Growth', prop: 'mtdValueGrowth' },
           { name: 'Current Month Volume Target', prop: 'currentMonthVolumeTarget' },
           { name: 'Current Month Volume Achievement', prop: 'currentMonthVolumeAchievement' },
           { name: 'Current Month Volume Achievement%', prop: 'currentMonthVolumeAchievement%' },
-          { name: 'Last Month Volume Sales', prop: 'lastMonthVolumeSales' },
+          { name: 'Last Month Volume Sales', prop: 'lastMonthVolumeSales', handle: v => {
+            let num = (v.lastMonthVolumeSales || 0) - 0
+            return num.toLocaleString()
+          } },
           { name: 'MTD Volume Growth%', prop: 'mtdVolumeGrowth' },
           { name: 'TL Name', prop: 'tlName' },
           { name: 'TL Contact Number', prop: 'tlContactNumber' },
@@ -158,5 +166,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.plat_desc {
+  ::v-deep .el-table {
+    th {
+      min-width: 150px;
+      width: 150px;
+    }
+  }
+}
 </style>
