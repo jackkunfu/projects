@@ -1,45 +1,68 @@
-<style scoped>
-.top {
-  border-bottom: 1px solid #eee;
-}
-.half {
-  width: 50%;
-  display: inline-block;
-  text-align: center;
-  line-height: 2.5em;
-  /* font-size: 0.8em; */
-  border-bottom: 0.2em solid transparent;
-}
-.half.cur {
-  border-bottom: 0.2em solid #007AFB;
-}
-</style>
-
 <template>
   <div>
-    <div class="top">
-      <div class="half" @click="curTab = 1" :class="{ 'cur': curTab === 1 }">Ranking</div>
-      <div class="half" @click="curTab = 2" :class="{ 'cur': curTab === 2 }">news</div>
+    <div>
+      <div style="height:0;text-align: center;position: relative;z-index: 1;">
+        <p style="margin:0;padding-top: 40px;color:#cbab72;font-size:0.7em;font-weight:bold;">{{ shop.retailerName }}</p>
+        <p style="padding-top:15px;font-size:1.4em;font-weight:bold;color:#fff;">{{ shop.clubClass }}</p>
+      </div>
+     <b-img :src="require('../assets/bg.jpg')" fluid-grow alt="Fluid-grow image"></b-img>
     </div>
-    <div v-if="curTab === 1">
-      <Ranking />
+    <div>
+      <ul class="list0">
+        <li><span>Catagory:</span><lable> {{ shop.evCatgry }}</lable></li>
+        <li><span>Current Rank:</span><lable> {{ shop.currentlyRank }}</lable></li>
+      </ul>
     </div>
-    <div v-if="curTab === 2">
-      <News />
+    <div>
+      <ul class="list1">
+        <li><p style="font-weight:bold;font-size:1.1em;">{{ shop.currentlyMonthTarget }}</p><p> Current Month Target</p></li>
+        <li><p style="font-weight:bold;font-size:1.1em;">{{ shop.currentlyMonthAchievement }}</p><p> Current Month Achievement</p></li>
+        <li><p style="font-weight:bold;font-size:1.1em;">{{ shop.lastMonthSales }}</p><p> Last Month Sales</p></li>
+        <li style="border-right:none;"><p style="font-weight:bold;font-size:1.1em;">{{ shop.lastMonthSchemePayout }}</p><p> Last Month Scheme Payout</p></li>
+      </ul>
     </div>
+
+    <div>
+      <ul class="list">
+        <li><lable><span>Sale</span> Score:</lable><p>{{ shop.salesScore || 0 }}</p></li>
+        <li><lable>Exclusive Store Score:</lable><p>{{ shop.exclusiveStoreScore|| 0 }}</p></li>
+        <li><lable>Branding Score:</lable><p>{{ shop.brandingScore || 0 }}</p></li>
+        <li><lable>vivo Share Score</lable><p>{{ shop.vivoShareScore}}</p></li>
+        <li><lable>Repayment Score:</lable><p>{{ shop.repaymentScore}}</p></li>
+        <li><lable>Current Total Score:</lable><p>{{ shop.currentlyTotalScore}}</p></li>
+        <li><lable style="padding-right:1px;">Current Branding Balance:</lable><p>{{ shop.currentlyBrandingBalance}}</p></li>
+        <li><lable>Branding Advance Remainder:</lable><p>{{ shop.brandingAdvanceRemainder}}</p></li>
+        <!-- <li><lable>TL Name:</lable><p>ANURAG KUMAR SINGH</p></li>
+        <li><lable>TL Contact Number:</lable><p>EC0002235</p></li> -->
+      </ul>
+    </div>
+
+    <div>
+      <b-table striped hover :items="items"></b-table>
+    </div>
+
+    <div>
+      <ul>
+        <li><lable>TL Name:</lable><p>{{ shop.tlName }}</p></li>
+        <li><lable>TL Contact Number:</lable><p>{{ shop.tlContactNumber }}</p></li>
+        <li><lable>Update time:</lable><p style="color:red;">{{ shop.dateTime }}</p></li>
+      </ul>
+    </div>
+
+    <b-row style="margin:50px;" align-h="center">
+    <b-col cols="8"><b-button block variant="danger" size="lg" @click="logout">Logout</b-button></b-col>
+    </b-row>
+  
+    
+
+
   </div>
 </template>
 
 <script>
-  import Ranking from './Ranking.vue'
-  import News from './News.vue'
-
   export default {
-    name: 'List1',
-    components: { Ranking, News },
     data() {
       return {
-        curTab: 1,
         retailer: { name: 'AJANTA MOBILE CENTER', role: 'UR' },
         form: {
           email: '',

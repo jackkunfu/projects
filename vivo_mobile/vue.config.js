@@ -23,9 +23,19 @@ module.exports = {
     open: false, // 配置自动启动浏览器
     proxy: {
       '/api': {
-        // target: 'http://47.99.201.236:9000',
-        target: 'http://vid6av.natappfree.cc',
-        pathRewrite: { '^/api': '' },
+        target: 'http://47.99.201.236:9000',
+        // target: 'http://vid6av.natappfree.cc',
+        // pathRewrite: { '^/api': '' },
+        changeOrigin: true
+      },
+      '/admin': {
+        target: 'http://47.99.201.236:9000',
+        // target: 'http://vid6av.natappfree.cc',
+        changeOrigin: true
+      },
+      '/login': {
+        target: 'http://47.99.201.236:9000',
+        // target: 'http://vid6av.natappfree.cc',
         changeOrigin: true
       }
     }

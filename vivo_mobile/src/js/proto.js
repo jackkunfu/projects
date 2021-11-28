@@ -4,7 +4,7 @@ export default function (Vue) {
   var hrefUrl = location.href
   // let isNeedNatFree = hrefUrl.indexOf('zhenwu') > -1 || hrefUrl.indexOf('localhost') > -1
   // var reqBasic = isNeedNatFree ? 'http://q68wtj.natappfree.cc' : `http://${location.hostname}:9000`
-  var reqBasic = '/api'
+  var reqBasic = ''
   // var reqBasic = 'http://10.100.32.9:9000'
   Vue.prototype.reqBasic = reqBasic
   

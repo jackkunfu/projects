@@ -2,12 +2,13 @@
   <div>
     <div class="list">
       <div class="item" v-for="item in list" :key="item.id" @click="goDtl(item.id)">
-        <div class="l">{{ item.name }}</div>
-        <div class="r">{{ item.createTime }}</div>
+        <div class="l">{{ item.title }}</div>
+        <div class="r">{{ item.createtime }}</div>
       </div>
     </div>
     <el-pagination
-      layout="prev, pager, next" :total="1000"
+      class="page"
+      layout="prev, pager, next" :total="pData.total"
       @current-change="pageChange">
     </el-pagination>
   </div>
@@ -18,12 +19,7 @@
     name: 'News',
     data() {
       return {
-        list: [
-          { name: 50, createTime: 'xxxx-xx-xx' },
-          { name: 50, createTime: 'xxxx-xx-xx' },
-          { name: 50, createTime: 'xxxx-xx-xx' },
-          { name: 50, createTime: 'xxxx-xx-xx' }
-        ],
+        list: [],
         pData: { cur: 1, total: 0 },
         shop: {}
       }
@@ -43,15 +39,22 @@
         if (res && res.code === 1) {
           let data = res.data || {}
 
-          this.list = data.list || []
+          this.list = (data.list || []).map(el => {
+            el.createtime = timeStr(el.createtime)
+            return el
+          })
 
           this.pData.total = data.total || 0
         }
       },
       goDtl (id) {
-        this._goUrl('/dtl', { id: id })
+        this._goUrl('/dtl', { query: { id: id } })
       }
     }
+  }
+
+  function timeStr(v) {
+    return (v || '').substr(0, 19).replace(/T/, ' ')
   }
 
   function st (v) {
@@ -68,12 +71,17 @@
   height: 3em;
   line-height: 3em;
   padding: 0 1em;
-  border-bottom: 1px solid #666;
+  border-bottom: 1px solid #eee;
 }
 .item .l {
   float: left;
 }
 .item .r {
   float: right;
+  color: #888;
+}
+.page {
+  text-align: center;
+  padding: 2em 0;
 }
 </style>
