@@ -7,15 +7,15 @@
 
     el-dialog(:visible.sync="editVisible" :before-close="editClose" :close-on-click-modal="false")
       el-form(v-model="newItem" label-width="80px" size="mini")
-        el-form-item(label="标题")
+        el-form-item(label="Title")
           el-input(v-model="newItem.title")
-        el-form-item(label="是否展示")
+        //- el-form-item(label="是否展示")
           el-switch(v-model="newItem.isShow")
-        el-form-item(label="内容")
+        el-form-item(label="Content")
           Editor(v-model="newItem.content")
       .op-btns
-        el-button(type="primary" @click="editOk" size="mini") 确定
-        el-button(@click="editClose" size="mini") 取消
+        el-button(type="primary" @click="editOk" size="mini") OK
+        el-button(@click="editClose" size="mini") Cancel
 </template>
 
 <script>
@@ -39,12 +39,12 @@ export default {
           edit: { url: '/admin/article/update' }
         },
         operates: [
-          { name: '编辑', handleSelf: true, fn: 'edit' },
-          { name: '删除', fn: '_del' }
+          { name: 'Edit', handleSelf: true, fn: 'edit' },
+          { name: 'Delete', fn: '_del' }
         ],
         tableItems: [
-          { name: '标题', prop: 'title' },
-          { name: '创建时间', prop: 'createtime', handle: v => createTimeStr(v && v.createtime) }
+          { name: 'Title', prop: 'title' },
+          { name: 'CreateTime', prop: 'createtime', handle: v => createTimeStr(v && v.createtime) }
         ],
       }
     }
@@ -60,10 +60,10 @@ export default {
       let res = await this._fetch(url, this.newItem)
       if (res) {
         if (res.code == 1) {
-          this._messageTip(res.msg || '操作成功', 1)
+          this._messageTip(res.msg || 'Success', 1)
           this.$refs.tp._getList()
         }
-        else this._messageTip(res.msg || '操作失败')
+        else this._messageTip(res.msg || 'Fail')
         this.editClose()
       }
     },

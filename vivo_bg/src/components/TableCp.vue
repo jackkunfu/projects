@@ -36,7 +36,7 @@
         template(v-else)
           el-table-column(:label="item.name" :prop="item.prop" :key="i" :sortable="item.sortable")
       //- 操作区域
-      el-table-column(label="操作" v-if="operates.length > 0" :width="operates.length*100")
+      el-table-column(label="Operates" v-if="operates.length > 0" :width="operates.length*100")
         template(slot-scope="{row}")
           el-button(
             size="mini" style="margin-bottom： 10px;"

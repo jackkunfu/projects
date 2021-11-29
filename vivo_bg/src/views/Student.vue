@@ -61,17 +61,17 @@ export default {
             let num = (v.lastMonthSchemePayout || 0) - 0
             return num.toLocaleString()
           } },
-          { name: 'Current Month Value Target', prop: 'currentMonthValueTarget' },
-          { name: 'Current Month Value Achievement', prop: 'currentMonthValueAchievement' },
-          { name: 'Current Month Value Achievement%', prop: 'currentMonthValueAchievement%' },
+          { name: 'Current Month Value Target', prop: 'currentlyMonthValueTarget' },
+          { name: 'Current Month Value Achievement', prop: 'currentlyMonthValueAchievement' },
+          { name: 'Current Month Value Achievement%', prop: 'currentlyMonthValueAchievementPercent' },
           { name: 'Last Month Value Sales', prop: 'lastMonthValueSales', handle: v => {
             let num = (v.lastMonthValueSales || 0) - 0
             return num.toLocaleString()
           } },
           { name: 'MTD Value Growth', prop: 'mtdValueGrowth' },
-          { name: 'Current Month Volume Target', prop: 'currentMonthVolumeTarget' },
-          { name: 'Current Month Volume Achievement', prop: 'currentMonthVolumeAchievement' },
-          { name: 'Current Month Volume Achievement%', prop: 'currentMonthVolumeAchievement%' },
+          { name: 'Current Month Volume Target', prop: 'currentlyMonthVolumeTarget' },
+          { name: 'Current Month Volume Achievement', prop: 'currentlyMonthVolumeAchievement' },
+          { name: 'Current Month Volume Achievement%', prop: 'currentlyMonthVolumeAchievementPercent' },
           { name: 'Last Month Volume Sales', prop: 'lastMonthVolumeSales', handle: v => {
             let num = (v.lastMonthVolumeSales || 0) - 0
             return num.toLocaleString()
@@ -79,8 +79,8 @@ export default {
           { name: 'MTD Volume Growth%', prop: 'mtdVolumeGrowth' },
           { name: 'TL Name', prop: 'tlName' },
           { name: 'TL Contact Number', prop: 'tlContactNumber' },
-          { name: 'BM/KAM Name', prop: 'bmkamName' },
-          { name: 'BM/KAM Contact Number', prop: 'bmkamContactNumber' },
+          { name: 'BM/KAM Name', prop: 'bmKamName' },
+          { name: 'BM/KAM Contact Number', prop: 'bmKamContactNumber' },
           { name: 'Update Time', prop: 'updateTime' },
 
           // { name: 'Club Class', prop: 'clubClass' },
