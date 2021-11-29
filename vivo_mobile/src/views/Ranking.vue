@@ -6,10 +6,10 @@
     </div>
 
     <div class="blue" style="height: 3em;padding-top: 0.75em;">
-      <div class="half">Client Level：
+      <div class="half">Client Level:
         <span class="white">{{ shop.clientLevel || '' }}</span>
       </div>
-      <div class="half">Current Rank：
+      <div class="half">Current Rank:
         <span class="white">{{ shop.currentlyRank || '' }}</span>
       </div>
     </div>
@@ -288,7 +288,7 @@
     border-radius: 0.2em;
     font-weight: bold;
     padding: 0 0.5em;
-    min-width: 3.5em;
+    min-width: 2.6em;
   }
   .box {
     &.grey {
