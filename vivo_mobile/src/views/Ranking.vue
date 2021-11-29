@@ -313,7 +313,7 @@
       font-size: 1.6em;
     }
     .f_s {
-      text-align: left;
+      // text-align: left;
       line-height: 1.2;
       margin-top: 0.5em;
     }
@@ -362,6 +362,19 @@
     padding: 1em;
     span {
       color: #dc3545;
+    }
+  }
+  @media screen and (max-width: 320px) {
+    .rank {
+      .box {
+        .half {
+          width: 100%;
+          overflow: hidden;
+        }
+        .f_b {
+          font-size: 1.4em;
+        }
+      }
     }
   }
 }
