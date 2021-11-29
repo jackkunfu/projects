@@ -2,7 +2,7 @@
   .login
     video(src="../assets/bgvideo.mp4" muted autoplay loop)
     div
-      h1.top Bihar Royal Ranking
+      h1.top vivo KL Retailer system
       .form
         el-form(:model="formData")
           el-form-item(label="Account")
