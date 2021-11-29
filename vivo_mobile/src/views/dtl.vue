@@ -4,7 +4,7 @@
       <div class="title">{{ detail.title }}</div>
       <div class="sub">Issue Date: {{ detail.createtime }}</div>
     </div>
-    <div v-html="detail.content"></div>
+    <div class="content" v-html="detail.content"></div>
   </div>
 </template>
 
@@ -44,14 +44,18 @@ function timeStr(v) {
   padding: 0.5em;
 }
 .title {
-  height: 2em;
   font-size: 1.5em;
-  line-height: 2em;
+  line-height: 1.2;
+  word-break: break-all;
+  margin-bottom: 0.5em;
 }
 .sub {
   height: 2em;
   font-size: 0.9em;
   line-height: 1.5em;
   color: #888;
+}
+.content {
+  /* word-break: break-all; */
 }
 </style>

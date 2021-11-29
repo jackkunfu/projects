@@ -75,6 +75,10 @@
 }
 .item .l {
   float: left;
+  white-space: nowrap;
+  max-width: 8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .item .r {
   float: right;
