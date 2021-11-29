@@ -13,9 +13,22 @@
   top: 0;
   left: 0;
   background-color: #fff;
+  
 }
 .list > .main {
   height: 100%;
+}
+.list .top .num {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 1em;
+  width: 1.8em;
+  height: 1.8em;
+  line-height: 1.8em;
+  border-radius: 0.9em;
+  font-size: 0.6em;
+  background-color: red;
+  color: #fff;
 }
 .half {
   width: 50%;
@@ -34,7 +47,9 @@
   <div class="list">
     <div class="top">
       <div class="half" @click="curTab = 1" :class="{ 'cur': curTab === 1 }">Ranking</div>
-      <div class="half" @click="curTab = 2" :class="{ 'cur': curTab === 2 }">news</div>
+      <div class="half" @click="curTab = 2" :class="{ 'cur': curTab === 2 }">News
+        <div class="num" v-if="newNum > 0">{{ newNum }}</div>
+      </div>
     </div>
     <div class="main">
       <div v-if="curTab === 1">
@@ -56,6 +71,7 @@
     components: { Ranking, News },
     data() {
       return {
+        newNum: 0,
         curTab: 1,
         retailer: { name: 'AJANTA MOBILE CENTER', role: 'UR' },
         form: {
@@ -72,6 +88,7 @@
     },
     created () {
       this.getList()
+      this.getUnread()
     },
     methods: {
       onSubmit(event) {
@@ -93,6 +110,12 @@
       },
       logout(){
         this.goLogin()
+      },
+      async getUnread () {
+        let res = await this._fetch('/api/article/unread', '', 'get')
+        if (res && res.code === 1) {
+          this.newNum = res.data || 0
+        }
       },
       async getList () {
         let res = await this._fetch('/api/shop', '', 'get')

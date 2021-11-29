@@ -1,8 +1,8 @@
 <template>
   <div class="rank">
     <div class="top">
-      <p class="name">{{ shop.retailerName }}</p>
-      <p class="sub">{{ shop.clubClass || '--' }}</p>
+      <p class="name">VIVO</p>
+      <p class="sub">{{ shop.retailerName || '--' }}</p>
     </div>
 
     <div class="blue" style="height: 3em;padding-top: 0.75em;">
@@ -10,39 +10,68 @@
         <span class="white">{{ shop.clientLevel || '' }}</span>
       </div>
       <div class="half">Current Rank：
-        <span class="white">{{ shop.currentRank || '' }}</span>
+        <span class="white">{{ shop.currentlyRank || '' }}</span>
       </div>
     </div>
 
     <div class="f_b" style="height: 2em;padding-top: 0.5em;">{{ shop.lastMonthSchemePayout || 0 }}</div>
     <div class="f_s blue">Last Month Scheme Payout</div>
 
-    <div class="f_b" style="height: 2em;padding-top: 0.5em;">{{ shop.currentlyMonthTarget || 0 }}</div>
-    <div class="f_s blue">Current Month Target</div>
+    <div class="f_b" style="height: 2em;padding-top: 0.5em;">{{ shop.currentlyMonthValueTarget || 0 }}</div>
+    <div class="f_s blue">Current Month Value Target</div>
 
-    <div style="border-bottom: 1px solid #eee;padding-top: 0.8em;">
-      <div class="half line">
-        <div class="f_b">{{ shop.currentMonthAchievement || 0 }}</div>
-        <div class="f_s">Current Month Achievement</div>
+    <div class="box">
+      <div style="border-bottom: 1px solid #eee;padding-top: 0.8em;">
+        <div class="half line">
+          <div class="f_b">{{ shop.currentlyMonthValueAchievement || 0 }}</div>
+          <div class="f_s">Current Month Value Achievement</div>
+        </div>
+        <div class="half">
+          <div class="f_b">{{ shop.currentlyMonthValueAchievementPercent || '0%' }}</div>
+          <div class="f_s">Current Month Value Achievement %</div>
+        </div>
       </div>
-      <div class="half">
-        <div class="f_b">{{ shop.currentMonthAchievementPercent || '0%' }}</div>
-        <div class="f_s">Current Month Achievement %</div>
+
+      <div style="padding-bottom: 0.8em;">
+        <div class="half line">
+          <div class="f_b">{{ shop.lastMonthValueSales || 0 }}</div>
+          <div class="f_s">Last Month Value Sales</div>
+        </div>
+        <div class="half">
+          <div class="f_b">{{ shop.mtdValueGrowth || '0%' }}</div>
+          <div class="f_s">MTD Value Growth %</div>
+        </div>
       </div>
     </div>
 
-    <div style="padding-bottom: 0.8em;">
-      <div class="half line">
-        <div class="f_b">{{ shop.lastMonthSales || 0 }}</div>
-        <div class="f_s">Last Month Sales</div>
+    <div class="f_b grey" style="height: 2em;padding-top: 0.5em;">{{ shop.currentlyMonthVolumeTarget || 0 }}</div>
+    <div class="f_s">Current Month Volume Target</div>
+
+    <div class="box grey">
+      <div style="border-bottom: 1px solid #fff;padding-top: 0.8em;">
+        <div class="half line">
+          <div class="f_b">{{ shop.currentlyMonthVolumeAchievement || 0 }}</div>
+          <div class="f_s">Current Month Volume Achievement</div>
+        </div>
+        <div class="half">
+          <div class="f_b">{{ shop.currentlyMonthVolumeAchievementPercent || '0%' }}</div>
+          <div class="f_s">Current Month Volume Achievement %</div>
+        </div>
       </div>
-      <div class="half">
-        <div class="f_b">{{ shop.mtdGrowthPercent || '0%' }}</div>
-        <div class="f_s">MTD Growth %</div>
+
+      <div style="padding-bottom: 0.8em;">
+        <div class="half line">
+          <div class="f_b">{{ shop.lastMonthVolumeSales || 0 }}</div>
+          <div class="f_s">Last Month Volume Sales</div>
+        </div>
+        <div class="half">
+          <div class="f_b">{{ shop.mtdVolumeGrowth || '0%' }}</div>
+          <div class="f_s">MTD Volume Growth %</div>
+        </div>
       </div>
     </div>
 
-    <div class="blue ul">
+    <!-- <div class="grey ul">
       <div>
         <div class="half">
           <div class="f_s bold">Sales Score</div>
@@ -86,37 +115,41 @@
           <div class="white">{{ shop.brandingAdvanceRemainder || 0 }}</div>
         </div>
       </div>
-
-      <div>
-        <div class="half">
-          <div class="f_s bold">TL Name</div>
-          <div class="white">{{ shop.tlName || 'ANURAG KUMAR SINGH' }}</div>
-        </div>
-        <div class="half">
-          <div class="f_s">TL Contact Number</div>
-          <div class="white">{{ shop.tlContactNumber || 'EC0002235' }}</div>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <b-table striped hover :items="items"></b-table>
-    </div>
-
-    <!-- <div>
-      <ul>
-        <li><lable>TL Name:</lable><p>{{ shop.tlName }}</p></li>
-        <li><lable>TL Contact Number:</lable><p>{{ shop.tlContactNumber }}</p></li>
-        <li><lable>Update time:</lable><p style="color:red;">{{ shop.dateTime }}</p></li>
-      </ul>
     </div> -->
 
-    <div style="text-align: center;padding-bottom: 2em;">
-      <b-col cols="8" style="margin: 1em auto;"><b-button block variant="danger" size="lg" @click="logout">Logout</b-button></b-col>
+    <!-- <div>
+      <b-table striped hover :items="items"></b-table>
+    </div> -->
+
+    <div class="btm">
+      <ul>
+        <li>
+          <div class="half line">TL Name:</div> 
+          <div class="half">{{ shop.tlName }}</div> 
+        </li>
+        <li>
+          <div class="half line">TL Contact Number:</div> 
+          <div class="half">{{ shop.tlContactNumber }}</div> 
+        </li>
+        <li>
+          <div class="half line">BM/KAM Name:</div> 
+          <div class="half">{{ shop.bmKamName }}</div> 
+        </li>
+        <li>
+          <div class="half line">BM/KAM Contact Number:</div> 
+          <div class="half">{{ shop.bmKamContactNumber }}</div>
+        </li>
+      </ul>
     </div>
 
-    <!-- <b-row style="margin:50px;" align-h="center"> -->
-    <!-- </b-row> -->
+    <div class="up_time">Update Time:
+      <span>{{ shop.updateTime }}</span>
+    </div>
+
+    <div style="text-align: center;padding-bottom: 2em;">
+      <div class="log_out" @click="logout">Logout</div>
+      <!-- <b-col cols="8" style="margin: 1em auto;border-radius: 1em;"><b-button block variant="danger" size="lg" @click="logout">Logout</b-button></b-col> -->
+    </div>
   </div>
 </template>
 
@@ -166,19 +199,20 @@
         let res = await this._fetch('/api/shop', '', 'get')
         if (res && res.code === 1) {
           var data = res.data || {}
-          var rank = data.rank || []
-          var items = rank.map(el => {
-            let { currentlyRank, clubClass, currentlyMonthAchievement, currentlyTotalScore } = el
-            return {
-              RankNo: currentlyRank,
-              ClubCLass: clubClass,
-              CurrentMonthAchievement: st(currentlyMonthAchievement),
-              CurrentTotalScore: st0(currentlyTotalScore)
-            }
-          })
-          console.log(items)
-          this.items = items
           this.shop = data.shop || {}
+
+          // var rank = data.rank || []
+          // var items = rank.map(el => {
+          //   let { currentlyRank, clubClass, currentlyMonthAchievement, currentlyTotalScore } = el
+          //   return {
+          //     RankNo: currentlyRank,
+          //     ClubCLass: clubClass,
+          //     CurrentMonthAchievement: st(currentlyMonthAchievement),
+          //     CurrentTotalScore: st0(currentlyTotalScore)
+          //   }
+          // })
+          // console.log(items)
+          // this.items = items
         }
       }
     }
@@ -195,6 +229,15 @@
 <style lang="scss" scoped>
 .rank {
   text-align: center;
+  .log_out {
+    width: 60%;
+    margin: 1em auto;
+    font-size: 1.3em;
+    line-height: 2.4em;
+    color: #fff;
+    border-radius: 1.2em;
+    background-color: #dc3545;
+  }
   .top {
     background-color: #5b8dff;
     height: 10em;
@@ -232,6 +275,9 @@
       color: #000;
     }
   }
+  .grey {
+    background-color: #eee;
+  }
   .white {
     background: #fff;
     text-align: left;
@@ -242,7 +288,35 @@
     border-radius: 0.2em;
     font-weight: bold;
     padding: 0 0.5em;
-    min-width: 5em;
+    min-width: 3.5em;
+  }
+  .box {
+    &.grey {
+      .line {
+        border-right: 1px solid #fff;
+      }
+      .half {
+        padding: 0.5em 0;
+        .f_s {
+          padding: 0 1.2em;
+        }
+      }
+    }
+    .half {
+      padding: 0.5em 0;
+      .f_s {
+        padding: 0 1.55em;
+      }
+      vertical-align: middle;
+    }
+    .f_b {
+      font-size: 1.6em;
+    }
+    .f_s {
+      text-align: left;
+      line-height: 1.2;
+      margin-top: 0.5em;
+    }
   }
   .ul {
     padding: 0.5em 0 1em;
@@ -256,105 +330,39 @@
       height: 2em;
     }
   }
+  .btm {
+    ul {
+      margin: 0.5em 0;
+      padding: 0;
+      border-top: 1px solid #ccc;
+      li {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        display: block;
+        height: 2.5em;
+        line-height: 2.5em;
+        float: none;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        font-size: 0.8em;
+        font-weight: bold;
+        &:nth-of-type(2n) {
+          background-color: #eee;
+        }
+        .line {
+          border-right: 1px solid #ccc;
+          font-weight: normal;
+        }
+      }
+    }
+  }
+  .up_time {
+    text-align: left;
+    padding: 1em;
+    span {
+      color: #dc3545;
+    }
+  }
 }
 </style>
-
-
-<style scoped>
-
-.list0{
-  width:100%;
-  overflow: hidden;
-  /* border:1px solid #ccc; */
-  background-color: #d8ecf7;
-  padding: 0px;
-  margin: 0;
-
-}
-.list0 li{
-  float:left;
-  width: 50%;
-  /* border:1px solid tomato; */
-  padding: 12px 8px;
-  background-color: #413b3d;
-}
-.list0 li >lable{
-  font-size: 1em;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight:bold;
-  padding:5px 15px 5px 10px;
-  background-color: white;
-  border:1px solid #e2ca84;
-  margin-left:5px;
-  border-radius: 5px;
-}
-.list0 li span{
-  color: white;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-
-.list1{
-  width:100%;
-  overflow: hidden;
-  /* border:1px solid #ccc; */
-  background-color: #d8ecf7;
-  padding: 0px;
-  margin: 0;
-  /* border:1px solid green; */
-}
-.list1 li{
-  float:left;
-  width: 25%;
-  /* border:1px solid tomato; */
-  padding: 12px 0 12px 0;
-  background-color: #d8ecf7;
-  border-right:1px dashed #000;
-}
-.list1 li >p{
-  font-size: 0.7em;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight:bold;
-  text-align: center;
-  /* padding:5px 20px 5px 15px; */
-  /* background-color: white; */
-  /* border:1px solid #e2ca84; */
-}
-.list1 li span{
-  /* font-size: 1.4em; */
-  font-weight: bold;
-  /* margin-left: 45%; */
-}
-
-.list{
-  width:100%;
-  overflow: hidden;
-  /* border:1px solid #ccc; */
-  background-color: #d8ecf7;
-  padding: 5px;
-}
-.list li{
-  float:left;
-  width: 50%;
-  /* border:1px solid tomato; */
-  padding: 5px 0;
-}
-.list li >lable{
-  font-size: 0.8em;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight:bold;
-}
-.list li span{
-  /* color: red; */
-}
-.list li >p{
-  width: 90%;
-  color: #000;
-  /* border:1px solid red; */
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px #413b3d;
-  padding: 10px;
-  margin: 5px 0;
-}
-</style>>
