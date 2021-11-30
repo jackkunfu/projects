@@ -34,7 +34,7 @@
       async getList (p) {
         this.pData.cur = p
         let res = await this._fetch('/api/article/list', {
-          pageSize: 20, pageNum: p
+          pageSize: 10, pageNum: p
         }, 'get')
         if (res && res.code === 1) {
           let data = res.data || {}
