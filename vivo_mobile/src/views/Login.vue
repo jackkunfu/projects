@@ -79,10 +79,10 @@ export default {
     }
     .btn {
       width: 300px;
-      margin-top: 15px;
+      margin-top: 2em;
       border: #fff;
       font-size: 1em;
-      line-height: 2;
+      line-height: 2.5;
       font-weight: bold;
       color: #5b8dff;
       background-color:#fff;
