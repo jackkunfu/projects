@@ -50,10 +50,10 @@ export default {
           // { name: '删除', fn: '_del' }
         ],
         tableItems: [
-          { name: 'DMS Code', prop: 'dmsCode' },
+          { name: 'V Work', prop: 'vWork' },
           { name: 'Password', prop: 'password' },
           { name: 'Retailer Name', prop: 'retailerName' },
-          { name: 'Zone', prop: 'zone' },
+          { name: 'District', prop: 'district' },
 
           { name: 'Client Level', prop: 'clientLevel' },
           { name: 'Currently Rank', prop: 'currentlyRank' },

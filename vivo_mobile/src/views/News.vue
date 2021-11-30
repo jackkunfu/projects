@@ -54,7 +54,7 @@
   }
 
   function timeStr(v) {
-    return (v || '').substr(0, 19).replace(/T/, ' ')
+    return (v || '').substr(0, 10).replace(/T/, ' ')
   }
 
   function st (v) {

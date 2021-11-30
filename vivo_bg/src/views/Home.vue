@@ -1,7 +1,7 @@
 <template lang="pug">
   el-container.ctn
     el-header
-      span.span Bihar Royal Ranking
+      span.span vivo KL Retailer system
       .fr
         span {{userName}}
         el-button(size="mini" @click="logout" style="margin: 15px 0 0 10px;") logout
