@@ -42,7 +42,7 @@
             // 图片上传并返回结果，图片插入成功之后触发
             // xhr 是 XMLHttpRequst 对象，editor 是编辑器对象，result 是服务器端返回的结果
         },
-        fail: function (xhr, editor, result) {console.log()
+        fail: function (xhr, editor, result) {
           console.log(1)
             // 图片上传并返回结果，但图片插入错误时触发
             // xhr 是 XMLHttpRequst 对象，editor 是编辑器对象，result 是服务器端返回的结果

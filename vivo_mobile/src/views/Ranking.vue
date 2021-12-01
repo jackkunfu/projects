@@ -266,6 +266,7 @@
     font-size: 1.8em;
     line-height: 1;
     font-weight: bold;
+    word-break: break-all;
   }
   .f_s {
     font-size: 0.8em;

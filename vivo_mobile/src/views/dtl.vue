@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="editor_dtl">
     <div class="top">
       <div class="title">{{ detail.title }}</div>
       <div class="sub">Issue Date: {{ detail.createtime }}</div>
@@ -36,6 +36,22 @@ function timeStr(v) {
 }
 </script>
 
+<style>
+#editor_dtl .content {
+  /* word-break: break-all; */
+}
+#editor_dtl .content table {
+  width: 100%;
+  border-left: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+#editor_dtl .content table td,
+#editor_dtl .content table th {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+</style>
+
 <style scoped>
 .top {
   border-bottom: 1px solid #eee;
@@ -55,7 +71,5 @@ function timeStr(v) {
   line-height: 1.5em;
   color: #888;
 }
-.content {
-  /* word-break: break-all; */
-}
+
 </style>
