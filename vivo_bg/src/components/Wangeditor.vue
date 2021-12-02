@@ -5,26 +5,28 @@
 <script>
   import E from 'wangeditor'
   export default {
-    name: 'editor',
+    name: 'WangEditor',
     props: ['value'],
-    watch: {
-      value: {
-        immediate: true,
-        handler (v) {
-          this.editorContent = v
-          if (this.editor) this.editor.txt.html(v || '')
-        }
-      }
-    },
+    // watch: {
+    //   value: {
+    //     immediate: true,
+    //     handler (v) {
+    //       this.editorContent = v
+    //       if (this.editor) this.editor.txt.html(v || '')
+    //     }
+    //   }
+    // },
     data () {
       return {
         editor: null,
-        editorContent: ''
+        // editorContent: ''
       }
     },
     methods: {},
     mounted() {
       this.editor = new E(this.$refs.editor)
+
+      // 初始化赋值
       this.editor.customConfig.uploadImgServer = this.reqBasic + '/api/upload'  // 上传图片到服务器
       this.editor.customConfig.uploadFileName = 'file'
       this.editor.customConfig.uploadImgHooks = {
@@ -71,12 +73,15 @@
             // result 必须是一个 JSON 格式字符串！！！否则报错
         }
       }
+      // 改变编辑器触发
       this.editor.customConfig.onchange = (html) => {
-        this.editorContent = html
+        // this.editorContent = html
         this.$emit('input', html)
       }
+      // 生成编辑器
       this.editor.create()
-      if (this.value) this.editor.txt.html(this.value || '')
+      // 初始化赋值
+      this.editor.txt.html(this.value || '')
     }
   }
 </script>

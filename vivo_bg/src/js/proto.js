@@ -13,7 +13,7 @@ export default function (Vue) {
 
   Vue.prototype._fetch = async function (url, data, type) {
     let loading = this.$loading()
-    let res = await axios({
+    let opt = {
       method: type || 'post',
       url: this.reqBasic + url, // 直连 后端处理跨域
       data: type && type === 'get' ? {} : data,
@@ -24,7 +24,9 @@ export default function (Vue) {
         'Content-Type': 'application/json',
         token: localStorage.MToken || ''
       }
-    })
+    }
+    // if (type)
+    let res = await axios(opt)
     loading.close()
     let result = res.data
     if (result) {

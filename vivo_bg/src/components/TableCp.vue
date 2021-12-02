@@ -115,8 +115,8 @@
  *}
  *------------
  */
-import Wangeditor from '@/components/Wangeditor.vue'
-import QuillEditorVue from '@/components/quillEditorVue.vue'
+import Wangeditor from '@/components/WangEditor.vue'
+import QuillEditorVue from '@/components/QuillEditorVue.vue'
 export default {
   name: 'TableCp',
   components: { Wangeditor, QuillEditorVue },

@@ -6,7 +6,7 @@
     TableCp(ref="tp" :config="config" :hadleEditItemFn="hadleEditItemFn" @edit="editItem")
 
     el-dialog(:visible.sync="editVisible" :before-close="editClose" :close-on-click-modal="false")
-      el-form(v-model="newItem" label-width="80px" size="mini")
+      el-form(v-if="editVisible" v-model="newItem" label-width="80px" size="mini")
         el-form-item(label="Title")
           el-input(v-model="newItem.title")
         //- el-form-item(label="是否展示")
@@ -21,7 +21,8 @@
 <script>
 import Upload from '@/components/Upload'
 import TableCp from '@/components/TableCp'
-import Editor from '@/components/Wangeditor'
+// import Editor from '@/components/QuillEditorVue.vue'
+import Editor from '@/components/WangEditor.vue'
 import { createTimeStr } from '@/js/fn.js'
 export default {
   name: 'News',
